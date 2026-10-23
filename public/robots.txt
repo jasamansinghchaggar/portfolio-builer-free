@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and dashboard routes
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /auth/
+Disallow: /onboarding/
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://portfolio-builder.app/sitemap.xml
