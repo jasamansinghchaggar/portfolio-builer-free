@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -37,8 +38,13 @@ export function PublishDialog({
   const [customDomain, setCustomDomain] = useState('');
   const [seoTitle, setSeoTitle] = useState('');
   const [seoDescription, setSeoDescription] = useState('');
+  const [origin, setOrigin] = useState('');
 
-  const fullUrl = `${window.location.origin}${portfolioUrl}`;
+  useEffect(() => {
+    setOrigin(window.location.origin);
+  }, []);
+
+  const fullUrl = `${origin}${portfolioUrl}`;
 
   const handlePublish = async () => {
     setIsLoading(true);

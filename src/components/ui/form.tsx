@@ -1,15 +1,9 @@
 'use client';
 
-import * as React from 'react';
-import * as Slot from '@radix-ui/react-slot';
-import {
-  Controller,
-  ControllerProps,
-  FieldPath,
-  FieldValues,
-  UseFormReturn,
-} from 'react-hook-form';
 import { cn } from '@/lib/utils';
+import * as Slot from '@radix-ui/react-slot';
+import * as React from 'react';
+import { Controller, ControllerProps, FieldPath, FieldValues } from 'react-hook-form';
 
 const Form = React.forwardRef<HTMLFormElement, React.ComponentPropsWithoutRef<'form'>>(
   ({ ...props }, ref) => <form {...props} ref={ref} />
@@ -32,9 +26,7 @@ function useFormField<TFieldValues extends FieldValues>() {
   return fieldContext;
 }
 
-interface FormFieldProps<TFieldValues extends FieldValues> extends ControllerProps<
-  UseFormReturn<TFieldValues>
-> {}
+type FormFieldProps<TFieldValues extends FieldValues> = ControllerProps<TFieldValues>;
 
 function FormField<TFieldValues extends FieldValues>({ ...props }: FormFieldProps<TFieldValues>) {
   return (
@@ -109,11 +101,11 @@ FormMessage.displayName = 'FormMessage';
 
 export {
   Form,
-  FormItem,
-  FormLabel,
   FormControl,
   FormDescription,
-  FormMessage,
   FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
   useFormField,
 };
